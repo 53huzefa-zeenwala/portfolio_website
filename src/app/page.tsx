@@ -1,103 +1,165 @@
 import Image from "next/image";
+import styles from "../css/homePage.module.css";
+import LoopingText from "@/components/LoopingText";
+import {
+  HighlightBox,
+  HighlightBoxWithoutHover,
+} from "@/components/HighlightBox";
+import {
+  Camera,
+  ColorFilter,
+  DesignPencil,
+  Dribbble,
+  Instagram,
+  Linkedin,
+  MobileDevMode,
+  Twitter,
+} from "iconoir-react";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex items-center justify-items-center min-h-screen flex-col px-4 pb-20 pt-40 gap-5 max-w-6xl w-full mx-auto">
+      <div className="flex flex-col lg:flex-row w-full gap-5">
+        <HighlightBox
+          className={"px-7 py-10 sm:px-[46px] sm:py-[50px] lg:w-half-flex"}
+        >
+          <div className="flex flex-col sm:flex-row gap-8 w-full sm:w-fit">
+            <div
+              className={`${styles.profileImageBox} aspect-square w-[224px] lg:w-[190px] xl:w-[224px]`}
+            >
+              <Image
+                src={"/me.png"}
+                fill
+                className="object-cover"
+                alt="My Phtot"
+              />
+            </div>
+            <div className="flex flex-col justify-center pr-5 sm:pr-0">
+              <p className="font-medium text-sm mb-2 text-gray">
+                A WEB DESIGNER
+              </p>
+              <h2 className="text-[30px] leading-10 font-semibold text-white mb-4">
+                David Henderson.
+              </h2>
+              <p className="text-sm tracking-wide text-gray">
+                I am a Web Designer based in san francisco.
+              </p>
+            </div>
+          </div>
+        </HighlightBox>
+        <div className="space-y-5 lg:w-half-flex">
+          <HighlightBoxWithoutHover>
+            <LoopingText />
+          </HighlightBoxWithoutHover>
+          <div className="flex flex-col sm:flex-row w-full gap-5">
+            <HighlightBox className={"p-6 sm:w-half-flex"}>
+              <div className="w-full">
+                <div className="relative w-full mb-2 h-[136px]">
+                  <Image
+                    src={"/sign.png"}
+                    alt="sign"
+                    className="object-contain"
+                    fill
+                  />
+                </div>
+                <p className="text-xs tracking-wide text-gray">
+                  MORE ABOUT ME.
+                </p>
+                <p className="text-[20px] leading-10 font-semibold text-white ">
+                  Credentials
+                </p>
+              </div>
+            </HighlightBox>
+            <HighlightBox className={"p-6 sm:w-half-flex"}>
+              <div className="w-full">
+                <div className="relative w-full mb-2 h-[136px]">
+                  <Image
+                    src={"/my-works.png"}
+                    alt="sign"
+                    className="object-contain"
+                    fill
+                  />
+                </div>
+                <p className="text-xs tracking-wide  text-gray">SHOWCASE.</p>
+                <p className="text-[20px] leading-10 font-semibold text-white ">
+                  Projects
+                </p>
+              </div>
+            </HighlightBox>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </div>
+
+      <div className="flex flex-col sm:flex-wrap lg:flex-nowrap sm:flex-row items-stretch justify-center w-full gap-5">
+        <HighlightBox
+          className={"w-full sm:w-half-flex lg:w-sem-half-flex p-6"}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div className="w-full">
+            <div className="relative w-full mb-2 h-[136px]">
+              <Image
+                src={"/gfonts.png"}
+                alt="sign"
+                className="object-contain"
+                fill
+              />
+            </div>
+            <p className="text-xs tracking-wide text-gray">BLOG</p>
+            <p className="text-[20px] leading-10 font-semibold text-white ">
+              GFonts
+            </p>
+          </div>
+        </HighlightBox>
+        <HighlightBox
+          className={
+            "p-6 order-none sm:order-3 w-full lg:w-half-flex lg:order-none h-full "
+          }
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div className="w-full">
+            <div className="flex justify-around items-center mb-2 lg:h-[136px] h-[80px]">
+              <Camera fontSize={28} className="text-white" />
+              <DesignPencil fontSize={28} className="text-white" />
+              <ColorFilter fontSize={28} className="text-white" />
+              <MobileDevMode fontSize={28} className="text-white" />
+            </div>
+            <p className="text-xs tracking-wide text-gray">SPECIALIZATION</p>
+            <p className="text-[20px] leading-10 font-semibold text-white ">
+              Services Offering
+            </p>
+          </div>
+        </HighlightBox>
+        <HighlightBox
+          className={"w-full sm:w-half-flex lg:w-sem-half-flex p-6 h-full"}
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="w-full socailMediaLinkBoxOuter ">
+            <div className="h-[136px] mb-2">
+              <div className="flex gap-5 mb-6  relative w-full bg-[#0f0f0f] z-[10] rounded-[30px] p-5 socailMediaLinkBox justify-evenly ">
+                <div className="relative socailMediaLink w-half-flex rounded-full z-[1] border-[1px] max-w-[80px] md:max-w-none  border-white/10 flex justify-center items-center h-fit text-white aspect-square p-4 cursor-pointer transition-all duration-300">
+                  <Dribbble fontSize={22} />
+                </div>
+                <div className="relative socailMediaLink w-half-flex rounded-full z-[1] border-[1px] max-w-[80px] md:max-w-none border-white/10 flex justify-center items-center h-fit text-white aspect-square p-4 cursor-pointer transition-all duration-300">
+                  <Twitter fontSize={22} />
+                </div>
+              </div>
+            </div>
+            <p className="text-xs tracking-wide text-gray">STAY WITH ME</p>
+            <p className="text-[20px] leading-10 font-semibold text-white ">
+              Profiles
+            </p>
+          </div>
+        </HighlightBox>
+      
+      </div>
+
+      <div className="flex flex-col lg:flex-row w-full h-fit gap-5 justify-center items-stretch">
+        <HighlightBoxWithoutHover>
+          <div></div>
+        </HighlightBoxWithoutHover>
+        <HighlightBox className={""}>
+          <div></div>
+        </HighlightBox>
+      </div>
+
+     
     </div>
   );
 }

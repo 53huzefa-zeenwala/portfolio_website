@@ -1,0 +1,71 @@
+.menuButton input[type="checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+
+.menuButton {
+  display: block;
+  position: relative;
+  cursor: pointer;
+     width: 25px;
+    height: 18px;
+}
+
+.menuButton span {
+  position: absolute;
+      width: 25px;
+    height: 2px;
+  background: #f1faeeac;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+
+.menuButton span.top {
+  top: 0;
+}
+
+.menuButton span.middle {
+  top: 8px; /* adjusted from 17px */
+}
+
+.menuButton span.bottom {
+  bottom: 0;
+}
+
+.menuButton input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 25px; /* adjusted proportionally */
+  left: 2px;
+}
+
+.menuButton input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 25px;
+  bottom: -.75px;
+  box-shadow: 0 0 6px #495057;
+}
+
+.menuButton input[type]:checked ~ span.middle {
+  transform: translateX(-15px); /* reduced from -20px */
+  opacity: 0;
+}
+
+.mobileNavActive {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileNavInactive {
+  transform: translate3d(0px, -300px, 0px) scale(1, 1) scale(1, 0.945615);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobileNavActive, .mobileNavInactive {
+  transition: all 0.5s;
+}
