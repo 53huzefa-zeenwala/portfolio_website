@@ -68,7 +68,7 @@ const Navbar = () => {
         <div className="hidden md:block">
           <Link href={"/"}>
             <button className="px-7 py-2 text-white bg-dark rounded-2xl transition-colors duration-500 hover:bg-white hover:text-background cursor-pointer">
-              Let's Talk
+              Let&apos;s Talk
             </button>
           </Link>
         </div>

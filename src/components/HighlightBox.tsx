@@ -5,7 +5,7 @@ const HighlightBox = ({
   className,
 }: Readonly<{
   children: React.ReactNode;
-  className: String
+  className: string
 }>) => {
   return (
     <div
@@ -27,7 +27,7 @@ const HighlightBoxWithoutHover = ({
   className ,
 }: Readonly<{
   children: React.ReactNode;
-  className?: String 
+  className?: string 
 }>) => {
   return (
     <div
