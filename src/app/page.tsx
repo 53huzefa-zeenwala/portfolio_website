@@ -19,11 +19,11 @@ import {
 export default function Home() {
   return (
     <div className="flex items-center justify-items-center min-h-screen flex-col px-4 pb-20 pt-40 gap-5 max-w-6xl w-full mx-auto">
-      <div className="flex flex-col lg:flex-row w-full gap-5">
+      <div className="flex flex-col lg:flex-row w-full gap-5 justify-center items-stretch">
         <HighlightBox
-          className={"px-7 py-10 sm:px-[46px] sm:py-[50px] lg:w-half-flex"}
+          className={"px-7 py-10 sm:px-[46px] sm:py-[50px] flex-1"}
         >
-          <div className="flex flex-col sm:flex-row gap-8 w-full sm:w-fit">
+          <div className="flex flex-col sm:flex-row gap-8">
             <div
               className={`${styles.profileImageBox} aspect-square w-[224px] lg:w-[190px] xl:w-[224px]`}
             >
@@ -47,12 +47,12 @@ export default function Home() {
             </div>
           </div>
         </HighlightBox>
-        <div className="space-y-5 lg:w-half-flex">
+        <div className="space-y-5 flex-1 min-w-half-flex">
           <HighlightBoxWithoutHover>
             <LoopingText />
           </HighlightBoxWithoutHover>
-          <div className="flex flex-col sm:flex-row w-full gap-5">
-            <HighlightBox className={"p-6 sm:w-half-flex"}>
+          <div className="flex flex-col sm:flex-row w-full gap-5 justify-center items-stretch">
+            <HighlightBox className={"p-6 flex-1"}>
               <div className="w-full">
                 <div className="relative w-full mb-2 h-[136px]">
                   <Image
@@ -70,7 +70,7 @@ export default function Home() {
                 </p>
               </div>
             </HighlightBox>
-            <HighlightBox className={"p-6 sm:w-half-flex"}>
+            <HighlightBox className={"p-6 flex-1"}>
               <div className="w-full">
                 <div className="relative w-full mb-2 h-[136px]">
                   <Image
@@ -133,10 +133,10 @@ export default function Home() {
           <div className="w-full socailMediaLinkBoxOuter ">
             <div className="h-[136px] mb-2">
               <div className="flex gap-5 mb-6  relative w-full bg-[#0f0f0f] z-[10] rounded-[30px] p-5 socailMediaLinkBox justify-evenly ">
-                <div className="relative socailMediaLink w-half-flex rounded-full z-[1] border-[1px] max-w-[80px] md:max-w-none  border-white/10 flex justify-center items-center h-fit text-white aspect-square p-4 cursor-pointer transition-all duration-300">
+                <div className="relative socailMediaLink w-half-flex rounded-full z-[1] border-[1px] max-w-[80px] lg:max-w-none  border-white/10 flex justify-center items-center h-fit text-white aspect-square p-4 cursor-pointer transition-all duration-300">
                   <Dribbble fontSize={22} />
                 </div>
-                <div className="relative socailMediaLink w-half-flex rounded-full z-[1] border-[1px] max-w-[80px] md:max-w-none border-white/10 flex justify-center items-center h-fit text-white aspect-square p-4 cursor-pointer transition-all duration-300">
+                <div className="relative socailMediaLink w-half-flex rounded-full z-[1] border-[1px] max-w-[80px] lg:max-w-none border-white/10 flex justify-center items-center h-fit text-white aspect-square p-4 cursor-pointer transition-all duration-300">
                   <Twitter fontSize={22} />
                 </div>
               </div>
@@ -151,10 +151,10 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col lg:flex-row w-full h-fit gap-5 justify-center items-stretch">
-        <HighlightBoxWithoutHover>
+        <HighlightBoxWithoutHover className={"flex-1"}>
           <div></div>
         </HighlightBoxWithoutHover>
-        <HighlightBox className={""}>
+        <HighlightBox className={"flex-1"}>
           <div></div>
         </HighlightBox>
       </div>

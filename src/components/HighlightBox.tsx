@@ -9,7 +9,7 @@ const HighlightBox = ({
 }>) => {
   return (
     <div
-      className={`mainBox ${className} flex flex-start flex-col sm:flex-row relative bg-background rounded-[30px] tracking-wide w-full text-gray font-medium`}
+      className={`mainBox ${className} flex flex-start flex-col sm:flex-row relative bg-background rounded-[30px] tracking-wide text-gray font-medium`}
     >
       <a className="overlayLink"></a>
       {children}
