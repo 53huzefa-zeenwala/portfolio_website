@@ -21,7 +21,8 @@ export default function Home() {
     <div className="flex items-center justify-items-center min-h-screen flex-col px-4 pb-20 pt-40 gap-5 max-w-6xl w-full mx-auto">
       <div className="flex flex-col lg:flex-row w-full gap-5 justify-center items-stretch">
         <HighlightBox
-          className={"px-7 py-10 sm:px-[46px] sm:py-[50px] flex-1"}
+          rowClassName="px-7 py-10 sm:px-[46px] sm:py-[50px] "
+          className="flex-1"
         >
           <div className="flex flex-col sm:flex-row gap-8">
             <div
@@ -48,11 +49,15 @@ export default function Home() {
           </div>
         </HighlightBox>
         <div className="space-y-5 flex-1 min-w-half-flex">
-          <HighlightBoxWithoutHover>
+          <HighlightBox
+            className="w-full"
+            rowClassName="px-7 py-5"
+            withOverlay={false}
+          >
             <LoopingText />
-          </HighlightBoxWithoutHover>
+          </HighlightBox>
           <div className="flex flex-col sm:flex-row w-full gap-5 justify-center items-stretch">
-            <HighlightBox className={"p-6 flex-1"}>
+            <HighlightBox rowClassName="p-6" className="flex-1">
               <div className="w-full">
                 <div className="relative w-full mb-2 h-[136px]">
                   <Image
@@ -70,7 +75,7 @@ export default function Home() {
                 </p>
               </div>
             </HighlightBox>
-            <HighlightBox className={"p-6 flex-1"}>
+            <HighlightBox rowClassName="p-6" className="flex-1">
               <div className="w-full">
                 <div className="relative w-full mb-2 h-[136px]">
                   <Image
@@ -92,7 +97,8 @@ export default function Home() {
 
       <div className="flex flex-col sm:flex-wrap lg:flex-nowrap sm:flex-row items-stretch justify-center w-full gap-5">
         <HighlightBox
-          className={"w-full sm:w-half-flex lg:w-sem-half-flex p-6"}
+          rowClassName="p-6"
+          className={"w-full sm:w-half-flex lg:w-sem-half-flex"}
         >
           <div className="w-full">
             <div className="relative w-full mb-2 h-[136px]">
@@ -110,9 +116,8 @@ export default function Home() {
           </div>
         </HighlightBox>
         <HighlightBox
-          className={
-            "p-6 order-none sm:order-3 w-full lg:w-half-flex lg:order-none h-full "
-          }
+          rowClassName="p-6"
+          className="order-none sm:order-3 w-full lg:w-half-flex lg:order-none h-full "
         >
           <div className="w-full">
             <div className="flex justify-around items-center mb-2 lg:h-[136px] h-[80px]">
@@ -128,7 +133,8 @@ export default function Home() {
           </div>
         </HighlightBox>
         <HighlightBox
-          className={"w-full sm:w-half-flex lg:w-sem-half-flex p-6 h-full"}
+          rowClassName="p-6"
+          className="w-full sm:w-half-flex lg:w-sem-half-flex h-full"
         >
           <div className="w-full socailMediaLinkBoxOuter ">
             <div className="h-[136px] mb-2">
@@ -147,19 +153,16 @@ export default function Home() {
             </p>
           </div>
         </HighlightBox>
-      
       </div>
 
       <div className="flex flex-col lg:flex-row w-full h-fit gap-5 justify-center items-stretch">
         <HighlightBoxWithoutHover className={"flex-1"}>
           <div></div>
         </HighlightBoxWithoutHover>
-        <HighlightBox className={"flex-1"}>
+        <HighlightBox rowClassName="" className={"flex-1"}>
           <div></div>
         </HighlightBox>
       </div>
-
-     
     </div>
   );
 }

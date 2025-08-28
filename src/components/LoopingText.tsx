@@ -1,71 +1,42 @@
 // components/SeamlessLoopingText.tsx
 "use client";
 
-import { useEffect, useRef } from "react";
-import styles from '../css/homePage.module.css';
+import { useRef } from "react";
+import { useGSAP, gsap, MotionPathPlugin } from "../utils/gsap-client";
 
 export default function LoopingText() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    let pos = 0;
-    const speed = 2; // pixels per frame
-    let animationFrame: number;
+    const totalWidth = container.scrollWidth / 2; // half width for loop
+    const speed = 200; // pixels per second
 
-    const loop = () => {
-      pos -= speed;
-      if (pos <= -container.scrollWidth / 2) {
-        pos = 0; // reset instantly
-      }
-      container.style.transform = `translateX(${pos}px)`;
-      animationFrame = requestAnimationFrame(loop);
-    };
-
-    animationFrame = requestAnimationFrame(loop);
-
-    return () => cancelAnimationFrame(animationFrame);
+    // Create seamless loop using modifiers
+    gsap.to(container, {
+      x: `-=${totalWidth}`, // move left by half width
+      duration: totalWidth / speed, // time based on speed
+      ease: "none",
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize((x) => parseFloat(x) % -totalWidth),
+      },
+    });
   }, []);
 
   return (
     <div className="overflow-hidden whitespace-nowrap flex w-full">
       <div className="flex gap-4 text-xs font-normal" ref={containerRef}>
-        <span className="flex gap-2">
-          LATEST WORK AND <b className="text-white">FEATURED</b>
-          <img decoding="async" src="star1.svg" alt="" />
-        </span>
-        <span className="flex gap-2">
-          LATEST WORK AND <b className="text-white">FEATURED</b>
-          <img decoding="async" src="star1.svg" alt="" />
-        </span>
-        <span className="flex gap-2">
-          LATEST WORK AND <b className="text-white">FEATURED</b>
-          <img decoding="async" src="star1.svg" alt="" />
-        </span>
-        <span className="flex gap-2">
-          LATEST WORK AND <b className="text-white">FEATURED</b>
-          <img decoding="async" src="star1.svg" alt="" />
-        </span>
-        <span className="flex gap-2">
-          LATEST WORK AND <b className="text-white">FEATURED</b>
-          <img decoding="async" src="star1.svg" alt="" />
-        </span>
-        <span className="flex gap-2">
-          LATEST WORK AND <b className="text-white">FEATURED</b>
-          <img decoding="async" src="star1.svg" alt="" />
-        </span>
-        
-        <span className="flex gap-2">
-          LATEST WORK AND <b className="text-white">FEATURED</b>
-          <img decoding="async" src="star1.svg" alt="" />
-        </span>
-        
-        <span className="flex gap-2">
-          LATEST WORK AND <b className="text-white">FEATURED</b>
-          <img decoding="async" src="star1.svg" alt="" />
-        </span>
+        {Array(8)
+          .fill(0)
+          .map((_, i) => (
+            <span key={i} className="flex gap-2">
+              LATEST WORK AND <b className="text-white">FEATURED</b>
+              <img decoding="async" src="star1.svg" alt="" />
+            </span>
+          ))}
       </div>
     </div>
   );
