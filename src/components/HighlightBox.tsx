@@ -45,7 +45,7 @@ const HighlightBox = ({
 
           scrollTrigger: {
             trigger: ref.current,
-            start: "top bottom",
+            start: "top 80%",
             // once: true,
             // scrub: true,
           },
